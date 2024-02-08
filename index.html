@@ -68,7 +68,7 @@
   gtag('config', 'G-LR59WTW1QS');
 </script>
 
-  
+
 
 </head>
 <body>
@@ -86,8 +86,9 @@
             <h2>Fiona Victoria Stanley Jothiraj</h2>
             <p>(she/her)</p>
             <p>PhD in Artificial Intelligence at Oregon State University</p>
-            <p>Masters Student at the University of Washington Bothell</p>
-            <p>Bellevue WA</p>
+            <i> Provost Distinguished Scholarship Recipient </i> 
+            <!--<p>MS in Computer Science at the University of Washington Bothell</p>-->
+            <p>Corvallis OR</p>
             <p>fiona.victoria@gmail.com</p>
             <p>
               <span onclick="window.open('https://www.linkedin.com/in/fionavictoria')" style="cursor: pointer">
@@ -124,6 +125,7 @@
           <li class="navbar-item"><a class="navbar-link" href=/index.html#publications>Publications</a></li>
           <li class="navbar-item"><a class="navbar-link" href=/index.html#projects>Projects</a></li>
           <li class="navbar-item"><a class="navbar-link" href=/index.html#resume>Vita</a></li>
+          <li class="navbar-item"><a class="navbar-link" href=/index.html#art>Fineline Art</a></li>
         </ul>
       </div>
     </nav>
@@ -145,9 +147,22 @@ function unhide(divID) {
   <span class="anchor" id="bio"></span>
   <h4>Bio</h4>
   <p>
-    My research lies at the intersection of AI/ML and Ecology as part of <b>AI for Social Good</b>.
-    I have conducted research works that led to pre-print publications on ArXiv and a conference paper at the <b>Data for Policy Conference 2022</b> held at Seattle. 
+    Hi! I'm Fiona, a passionate researcher dedicated to leveraging the power of 
+    artificial intelligence and machine learning for social good, particularly in the 
+    field of Ecology.
+  </p>
+  <p>
+    Prior to this, I obtained my Master's in Computer Science from the University of 
+    Washington Bothell and my bachelor’s in Robotics and Automation from PSG College of 
+    Technology. I have actively volunteered for a recent social cause using NLP techniques 
+    and worked as a machine learning engineer specializing in building multimodal AI systems 
+    and developing quantization techniques for neural networks.
+  </p>
+  <p>
+    I have conducted research that led to pre-print publications on ArXiv and presented a 
+    conference paper at the Data for Policy Conference 2022 held in Seattle.
   </p> 
+
 </div>
 
 <!-- ========== BLOGS ================= -->
@@ -303,7 +318,7 @@ function unhide(divID) {
           <div class="row">
           <div class="six columns">
             <div class="project-container">
-                <div class="project-image-container">
+                <div class="project-image-container" style="max-width: 200px;">
                   <a href="https://github.com/fionavictoria/MLFoodSustainability">
                     <img src="assets/projects/timeseries/thumbnail.png" class="u-max-full-width"/>
                   </a>
@@ -317,7 +332,7 @@ function unhide(divID) {
 
           <div class="six columns">
             <div class="project-container">
-                <div class="project-image-container">
+                <div class="project-image-container" style="max-width: 200px;">
                   <a href="https://github.com/fionavictoria/MLEmotionDetection">
                     <img src="assets/projects/emotiondetection/thumbnail.png" class="u-max-full-width"/>
                   </a>
@@ -333,7 +348,7 @@ function unhide(divID) {
           <div class="row">
           <div class="six columns">
             <div class="project-container">
-                <div class="project-image-container">
+                <div class="project-image-container" style="max-width: 200px;">
                   <a href="https://github.com/fionavictoria/ImageRestoration_CUDA">
                     <img src="assets/projects/cuda/thumbnail.png" class="u-max-full-width"/>
                   </a>
@@ -347,7 +362,7 @@ function unhide(divID) {
 
           <div class="six columns">
             <div class="project-container">
-                <div class="project-image-container">
+                <div class="project-image-container" style="max-width: 200px;">
                   <a href="https://github.com/fionavictoria/MLSpatioTemporalTrafficFatality">
                     <img src="assets/projects/spatiotemporal/thumbnail.png" class="u-max-full-width"/>
                   </a>
@@ -363,6 +378,7 @@ function unhide(divID) {
   </div>
 
 </div>
+
 
 
 <!-- ========== RESUME ========== -->
@@ -451,11 +467,82 @@ function unhide(divID) {
   </ul>
 </div>
 
+<!-- ========== ART ========== -->
+<!-- Include Slick Carousel CSS -->
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
+
+<!-- Include Slick Carousel JS -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
+<span class="anchor" id="art"></span>
+<div class="docs-section">
+  <h4>Art</h4>
+
+  <ul class="tab-nav">
+    <li><div class="button active" data-ref="#art-all">All</div></li>
+  </ul>
+
+  <div class="tab-content">
+    <div class="tab-pane active" id="art-all">  
+      <div class="carousel">
+        <div class="carousel-inner" id="imageContainer">
+          <!-- Images will be dynamically loaded here -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function(){
+    // Function to load images dynamically
+    function loadImages() {
+      var imageFolder = 'assets/artworks/'; // Folder path
+      var imageContainer = $('#imageContainer'); // Container to hold images
+      
+      // Loop to load each image
+      for (var i = 1; i <= 50; i++) { // Assuming you have 50 images
+        var imageURL = imageFolder + 'image' + i + '.jpg'; // Assuming image names are like image_1.png, image_2.png, etc.
+        var slideHTML = '<div><div class="project-container"><img src="' + imageURL + '" class="u-max-full-width"/></div></div>';
+        imageContainer.append(slideHTML);
+      }
+      
+      // Initialize Slick Carousel
+      $('.carousel-inner').slick({
+        slidesToShow: 4, // Show 4 images at a time
+        slidesToScroll: 1,
+        autoplay: false,
+        arrows: true,
+        prevArrow: '<button type="button" class="slick-prev"><</button>',
+        nextArrow: '<button type="button" class="slick-next">></button>',
+        responsive: [
+          {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 3 // Adjust for smaller screens if needed
+            }
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              slidesToShow: 2 // Adjust for smaller screens if needed
+            }
+          }
+        ]
+      });
+    }
+
+    // Call the function to load images
+    loadImages();
+  });
+</script>
+
+
 <!-- ========== MISC ========== -->
 <span class="anchor" id="meta"></span>
 <div class="docs-section">
   <p> This website was built with <a href="https://jekyllrb.com">jekyll</a> based on a template by <a href="http://web.media.mit.edu/~msaveski/">Dr. Martin Saveski</a> and <a href="https://dmelis.github.io/">Dr. David Alvarez-Melis.</a>
-  Last Updated on October 2023 </p>
+  Last Updated on February 2024 </p>
 </div>
 
 
