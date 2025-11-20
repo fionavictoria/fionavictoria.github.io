@@ -90,4 +90,29 @@ $(document).ready(function() {
 
   init();
 
+  // Dark Mode Toggle Functionality
+  const darkModeToggle = document.getElementById('darkModeToggle');
+  const darkModeIcon = document.getElementById('darkModeIcon');
+  
+  // Check for saved user preference or default to light mode
+  const currentTheme = localStorage.getItem('theme') || 'light';
+  if (currentTheme === 'dark') {
+    document.body.classList.add('dark-mode');
+    darkModeIcon.textContent = '☀️';
+  }
+
+  // Toggle dark mode on button click
+  darkModeToggle.addEventListener('click', function() {
+    document.body.classList.toggle('dark-mode');
+    
+    // Update icon and save preference
+    if (document.body.classList.contains('dark-mode')) {
+      darkModeIcon.textContent = '☀️';
+      localStorage.setItem('theme', 'dark');
+    } else {
+      darkModeIcon.textContent = '🌙';
+      localStorage.setItem('theme', 'light');
+    }
+  });
+
 });
