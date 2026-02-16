@@ -13,6 +13,28 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <script>
+    (function () {
+      var key = 'site-theme';
+      var theme = 'light';
+
+      try {
+        var storedTheme = localStorage.getItem(key);
+        if (storedTheme === 'light' || storedTheme === 'dark') {
+          theme = storedTheme;
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          theme = 'dark';
+        }
+      } catch (e) {
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          theme = 'dark';
+        }
+      }
+
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+
   <!-- FONT
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
@@ -21,7 +43,6 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="stylesheet" href=/libs/external/skeleton/normalize.css>
   <link rel="stylesheet" href=/libs/external/skeleton/skeleton.css>
-  <link rel="stylesheet" href=/libs/custom/my_css.css>
 
   <!-- JQuery
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -44,6 +65,7 @@
   <!-- Timeline
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="stylesheet" href=/libs/external/timeline.css>
+  <link rel="stylesheet" href=/libs/custom/my_css.css>
 
   <!-- Scripts
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -72,6 +94,10 @@
 
 </head>
 <body>
+  <button id="theme-toggle" class="theme-toggle theme-toggle-floating" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+    <i class="fa fa-moon-o" aria-hidden="true"></i>
+    <span class="sr-only">Toggle dark mode</span>
+  </button>
 
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -83,7 +109,7 @@
           <a href="/"><img title="" class="u-max-full-width" src='assets/profile-pics/SU_small.jpg'></a>
         </div>
         <div class="nine columns main-description">
-            <h2>Fiona Victoria Stanley Jothiraj</h2>
+            <h2><span class="name-strong">Fiona Victoria</span> Stanley Jothiraj</h2>
             <p>(she/her)</p>
             <p>PhD in Artificial Intelligence at Oregon State University</p>
             <i> Provost Distinguished Scholarship Recipient </i> 
@@ -168,7 +194,7 @@ function unhide(divID) {
     
 <span class="anchor" id="talks"></span>
 
-<div class="docs-section">
+<div class="docs-section" id="talks-section">
   <h4>Invited Talks</h4>
   <div class="tab-content">    
       <div class="tab-pane active" id="papers-all">
@@ -204,19 +230,13 @@ function unhide(divID) {
 
   <p>Most recent publications on <a href="https://scholar.google.com/citations?user=jKYhsdsAAAAJ&hl=en" target="_blank">Google Scholar</a>.</p>
 
-  <ul class="tab-nav">
-      
-      <li><div class="button active" data-ref="#papers-all" font-size: 10px>All</div></li>
-    
-  </ul>
-
   <div class="tab-content">    
       <div class="tab-pane active" id="papers-all">
 
             <span class="anchor" id="JKOICNN"></span>
             <div class="paper">
               <p class="title"><b>DECOR: Deep Embedding Clustering with Orientation Robustness</b></p>
-              <p><b>Fiona Victoria Stanley Jothiraj</b>, Arunaggiri Pandian, Seth A. Eichmeyer</p>
+              <p><span class="paper-author-highlight">Fiona Victoria Stanley Jothiraj</span>, Arunaggiri Pandian, Seth A. Eichmeyer</p>
               <p><i>AAAI 2026 Bridge Program on Knowledge-guided Machine Learning</i></p>
               <p><i>Also selected at the AAAI 2026 Workshop on AI to Accelerate Science and Engineering (AI2ASE)</i></p>
               <div class="paper-buttons">
@@ -228,8 +248,8 @@ function unhide(divID) {
             <span class="anchor" id="JKOICNN"></span>
             <div class="paper">
               <p class="title"><b>Species distribution model performance improves when habitat characterizations are centered on detected individuals instead of observers</b></p>
-              <p>Fang-Yu Shen, <b>Fiona Victoria Stanley Jothiraj</b>, Rebecca A Hutchinson, Tyler A Hallman, Jenna R Curtis, W Douglas Robinson</p>
-              <p><i>Ecological Indicators</i></p>
+              <p>Fang-Yu Shen, <span class="paper-author-highlight">Fiona Victoria Stanley Jothiraj</span>, Rebecca A Hutchinson, Tyler A Hallman, Jenna R Curtis, W Douglas Robinson</p>
+              <p><i>Ecological Indicators 2025</i></p>
               <div class="paper-buttons">
 
                    <a class="button" href="https://www.sciencedirect.com/science/article/pii/S1470160X25004765" target="_blank">pdf</a>
@@ -239,7 +259,7 @@ function unhide(divID) {
             <span class="anchor" id="JKOICNN"></span>
             <div class="paper">
               <p class="title"><b>Phoenix: A Federated Generative Diffusion Model</b></p>
-              <p><b>Fiona Victoria Stanley Jothiraj</b>, Afra Mashhadi</p>
+              <p><span class="paper-author-highlight">Fiona Victoria Stanley Jothiraj</span>, Afra Mashhadi</p>
               <p><i>ACM The Web Conference (WWW) 2024 Conference</i></p>
               <div class="paper-buttons">
 
@@ -251,7 +271,7 @@ function unhide(divID) {
             <span class="anchor" id="JKOICNN"></span>
             <div class="paper">
               <p class="title"><b>Nostalgia on Twitter: Detection and Analysis of a Large-Scale Dataset</b></p>
-              <p><b>Fiona Victoria Stanley Jothiraj</b>, Lingzi Hong, Afra Mashhadi </p>
+              <p><span class="paper-author-highlight">Fiona Victoria Stanley Jothiraj</span>, Lingzi Hong, Afra Mashhadi </p>
               <p><i>ASIS&T 2024</i></p>
               <div class="paper-buttons">
                 <a class="button" href="https://asistdl.onlinelibrary.wiley.com/doi/abs/10.1002/pra2.1033" target="_blank">pdf</a>
@@ -262,7 +282,7 @@ function unhide(divID) {
             <span class="anchor" id="JKOICNN"></span>
             <div class="paper">
               <p class="title"><b>Empirical Dynamic Modelling of the Multi-Source Park Visitation Data</b></p>
-              <p>Vahid Shamsaddini, <b>Fiona Victoria Stanley Jothiraj</b>, Mandy Chen, and Afra Mashhadi</p>
+              <p>Vahid Shamsaddini, <span class="paper-author-highlight">Fiona Victoria Stanley Jothiraj</span>, Mandy Chen, and Afra Mashhadi</p>
               <p><i>Data for Policy Conference 2022</i></p>
               <div class="paper-buttons">
 
@@ -275,7 +295,7 @@ function unhide(divID) {
             <span class="anchor" id="JKOICNN"></span>
             <div class="paper">
               <p class="title"><b>Personalized Emotion Detection using IoT and Machine Learning</b></p>
-              <p><b>Fiona Victoria Stanley Jothiraj</b>, Afra Mashhadi</p>
+              <p><span class="paper-author-highlight">Fiona Victoria Stanley Jothiraj</span>, Afra Mashhadi</p>
               <p><i>ArXiv 2022</i></p>
               <div class="paper-buttons">
 
@@ -288,7 +308,7 @@ function unhide(divID) {
             <span class="anchor" id="JKOICNN"></span>
             <div class="paper">
               <p class="title"><b>Time Series Prediction for Food sustainability</b></p>
-              <p><b>Fiona Victoria Stanley Jothiraj</b></p>
+              <p><span class="paper-author-highlight">Fiona Victoria Stanley Jothiraj</span></p>
               <p><i>ArXiv 2022</i></p>
               <div class="paper-buttons">
 
@@ -310,7 +330,7 @@ function unhide(divID) {
     
 <span class="anchor" id="blogs"></span>
 
-<div class="docs-section">
+<div class="docs-section" id="blogs-section">
   <h4>Blogs</h4>
 
   <div class="tab-content">    
@@ -382,7 +402,8 @@ function unhide(divID) {
   /* Lightbox content (centered) */
   .lightbox-content {
     position: relative;
-    background: white;
+    background: var(--surface-color);
+    color: var(--text-color);
     padding: 15px;
     border-radius: 10px;
     text-align: center;
@@ -405,7 +426,7 @@ function unhide(divID) {
     top: 10px;
     right: 15px;
     font-size: 25px;
-    color: black;
+    color: var(--text-color);
     cursor: pointer;
     background: rgba(0, 0, 0, 0.2);
     padding: 5px 10px;
@@ -413,8 +434,12 @@ function unhide(divID) {
   }
 
   .close-btn:hover {
-    background: rgba(255, 255, 255, 0.5);
-    color: black;
+    background: rgba(0, 0, 0, 0.35);
+    color: var(--text-color);
+  }
+
+  html[data-theme="dark"] .close-btn:hover {
+    background: rgba(255, 255, 255, 0.4);
   }
 
   .back-to-media:hover {
@@ -724,10 +749,6 @@ function unhide(divID) {
 <span class="anchor" id="art"></span>
 <div class="docs-section">
   <h4>Art</h4>
-
-  <ul class="tab-nav">
-    <li><div class="button active" data-ref="#art-all">All</div></li>
-  </ul>
 
   <div class="tab-content">
     <div class="tab-pane active" id="art-all">  
