@@ -1,886 +1,925 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-  <!-- Basic Page Needs
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta charset="utf-8">
-  <title>Fiona Victoria | Home</title>
-  <meta name="description" content="Homepage of Fiona Victoria">
-  <meta name="Fiona Victoria" content="Fiona Victoria">
-
-  <!-- Mobile Specific Metas
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fiona Victoria | PhD Researcher in AI</title>
+  <meta name="description" content="Fiona Victoria Stanley Jothiraj — PhD in Artificial Intelligence at Oregon State University.">
 
-  <script>
-    (function () {
-      var key = 'site-theme';
-      var theme = 'light';
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/libs/external/font-awesome-4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/libs/external/academicons-1.8.6/css/academicons.min.css">
+  <link rel="stylesheet" href="/libs/external/timeline.css">
 
-      try {
-        var storedTheme = localStorage.getItem(key);
-        if (storedTheme === 'light' || storedTheme === 'dark') {
-          theme = storedTheme;
-        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-          theme = 'dark';
-        }
-      } catch (e) {
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-          theme = 'dark';
-        }
+  <style>
+    :root {
+      --bg: #f4f2eb;
+      --ink: #14161f;
+      --ink-soft: #4f5568;
+      --card: #faf8f2;
+      --line: #d5d0c4;
+      --accent: #0f5d5e;
+      --radius: 20px;
+      --shadow: 0 24px 48px rgba(20, 22, 31, 0.12);
+      --max: 1140px;
+      --hero-gradient: radial-gradient(circle at 14% 18%, #f7d38e 0%, rgba(247, 211, 142, 0) 48%), radial-gradient(circle at 88% 12%, #b7d8d7 0%, rgba(183, 216, 215, 0) 36%), linear-gradient(135deg, #f7f3ea 0%, #f1ede2 52%, #ece6d7 100%);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "Space Grotesk", "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration-color: rgba(15, 93, 94, 0.5);
+      text-underline-offset: 2px;
+    }
+
+    .shell {
+      width: min(var(--max), calc(100% - 3rem));
+      margin: 0 auto;
+    }
+
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(8px);
+      background: rgba(244, 242, 235, 0.88);
+      border-bottom: 1px solid rgba(213, 208, 196, 0.8);
+    }
+
+    .site-nav .shell {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 0;
+      gap: 1rem;
+    }
+
+    .brand {
+      font-family: "Fraunces", serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      font-size: 0.88rem;
+      text-decoration: none;
+      color: var(--ink-soft);
+      border-bottom: 2px solid transparent;
+      padding-bottom: 0.1rem;
+      transition: color 180ms ease, border-color 180ms ease;
+    }
+
+    .nav-links a.is-active,
+    .nav-links a:hover {
+      color: var(--ink);
+      border-bottom-color: var(--accent);
+    }
+
+    .hero {
+      background: var(--hero-gradient);
+      border-bottom: 1px solid var(--line);
+      overflow: clip;
+    }
+
+    .hero .shell {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 2.2rem;
+      padding: 3.2rem 0 3.8rem;
+      align-items: center;
+    }
+
+    .portrait-wrap {
+      background: rgba(255, 255, 255, 0.58);
+      border-radius: var(--radius);
+      border: 1px solid rgba(255, 255, 255, 0.75);
+      padding: 1rem;
+      box-shadow: var(--shadow);
+      transform: rotate(-1.5deg);
+      max-width: 320px;
+    }
+
+    .portrait-wrap img {
+      width: 100%;
+      display: block;
+      border-radius: 14px;
+    }
+
+    .eyebrow {
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.76rem;
+      color: var(--ink-soft);
+      font-weight: 700;
+    }
+
+    h1 {
+      font-family: "Fraunces", serif;
+      margin: 0.5rem 0 0.8rem;
+      font-size: clamp(1.8rem, 3.2vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: -0.015em;
+    }
+
+    .hero p {
+      margin: 0;
+      color: #262c3f;
+      max-width: 68ch;
+      font-size: clamp(1rem, 1.5vw, 1.12rem);
+    }
+
+    .hero-meta {
+      margin-top: 1.1rem;
+      display: flex;
+      gap: 0.7rem;
+      flex-wrap: wrap;
+    }
+
+    .chip {
+      background: rgba(20, 22, 31, 0.08);
+      border: 1px solid rgba(20, 22, 31, 0.08);
+      border-radius: 999px;
+      padding: 0.28rem 0.7rem;
+      font-size: 0.82rem;
+      color: #1f2333;
+      max-width: 100%;
+      overflow-wrap: anywhere;
+    }
+
+    .links-row {
+      margin-top: 1.1rem;
+      display: flex;
+      gap: 0.8rem;
+      align-items: center;
+      flex-wrap: wrap;
+      color: #1f2333;
+    }
+
+    .icon-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.42rem 0.72rem;
+      text-decoration: none;
+      border-radius: 999px;
+      border: 1px solid rgba(20, 22, 31, 0.18);
+      background: rgba(255, 255, 255, 0.58);
+      font-size: 0.86rem;
+    }
+
+    main { padding: 2.4rem 0 4rem; }
+
+    section {
+      padding: 1.1rem 0 2rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    section:last-child { border-bottom: none; }
+
+    h2 {
+      margin: 0 0 1rem;
+      font-family: "Fraunces", serif;
+      font-size: clamp(1.6rem, 2.3vw, 2.35rem);
+      letter-spacing: -0.012em;
+    }
+
+    h3 {
+      margin: 0 0 0.45rem;
+      font-size: 1rem;
+      letter-spacing: 0.01em;
+    }
+
+    .section-lead {
+      margin: 0 0 1.4rem;
+      max-width: 78ch;
+      color: var(--ink-soft);
+    }
+
+    .grid-3,
+    .focus-grid,
+    .list-grid,
+    .project-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .focus-grid,
+    .list-grid,
+    .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+    .metric,
+    .card,
+    .pub-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1rem 1.1rem;
+    }
+
+    .metric strong {
+      display: block;
+      font-family: "Fraunces", serif;
+      font-size: 1.95rem;
+      line-height: 1;
+      margin-bottom: 0.35rem;
+      color: var(--accent);
+    }
+
+    .card p,
+    .pub-card p,
+    .list-card li,
+    .project-card p {
+      margin: 0;
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+    }
+
+    .pub-list {
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .pub-card {
+      background: linear-gradient(145deg, var(--card) 0%, #f0ece2 100%);
+    }
+
+    .pub-meta {
+      margin-top: 0.6rem;
+      display: flex;
+      gap: 0.7rem;
+      flex-wrap: wrap;
+      font-size: 0.8rem;
+      color: #293146;
+    }
+
+    .list-card ul {
+      margin: 0;
+      padding-left: 1.1rem;
+      display: grid;
+      gap: 0.6rem;
+    }
+
+    .project-card {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 0.9rem;
+      align-items: center;
+      text-decoration: none;
+      transition: transform 180ms ease;
+    }
+
+    .project-card:hover { transform: translateY(-2px); }
+
+    .project-card img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .media-grid,
+    .art-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.6rem;
+    }
+
+    #art .art-grid {
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 0.45rem;
+    }
+
+    .media-grid button,
+    .art-grid button {
+      border: 0;
+      padding: 0;
+      background: transparent;
+      cursor: pointer;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .media-grid img,
+    .art-grid img {
+      width: 100%;
+      display: block;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      transition: transform 260ms ease;
+    }
+
+    .media-grid button:hover img,
+    .art-grid button:hover img { transform: scale(1.05); }
+
+    .cta {
+      margin-top: 1rem;
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      border-radius: 999px;
+      text-decoration: none;
+      border: 1px solid var(--ink);
+      padding: 0.5rem 0.95rem;
+      font-size: 0.88rem;
+      transition: all 180ms ease;
+    }
+
+    .btn:hover {
+      background: var(--ink);
+      color: #f4f2eb;
+    }
+
+    .btn.primary {
+      border-color: var(--accent);
+      background: var(--accent);
+      color: #eef8f8;
+    }
+
+    .btn.primary:hover {
+      background: #0a4748;
+      border-color: #0a4748;
+    }
+
+    #cv .flag {
+      display: inline-block;
+    }
+
+    @media screen and (min-width: 1001px) {
+      #cv .timeline {
+        width: 960px;
       }
 
-      document.documentElement.setAttribute('data-theme', theme);
-    })();
-  </script>
+      #cv .direction-l,
+      #cv .direction-r {
+        width: 450px;
+      }
 
-  <!-- FONT
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+      #cv .flag {
+        white-space: nowrap;
+      }
+    }
 
-  <!-- CSS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="stylesheet" href=/libs/external/skeleton/normalize.css>
-  <link rel="stylesheet" href=/libs/external/skeleton/skeleton.css>
+    .footer {
+      border-top: 1px solid var(--line);
+      padding: 1.5rem 0 2.5rem;
+      color: var(--ink-soft);
+      font-size: 0.9rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
 
-  <!-- JQuery
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <script src=/libs/external/jquery-3.1.1.min.js></script>
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 500ms ease, transform 500ms ease;
+    }
 
-  <!-- Font-Awesome
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="stylesheet" href=/libs/external/font-awesome-4.7.0/css/font-awesome.min.css>
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-  <!-- Academic-Icons
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="stylesheet" href=/libs/external/academicons-1.8.6/css/academicons.min.css>
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(20, 22, 31, 0.85);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 1rem;
+    }
 
+    .lightbox.open {
+      display: flex;
+      animation: fadeIn 180ms ease;
+    }
 
-  <!-- Skeleton tabs
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="stylesheet" href=/libs/external/skeleton_tabs/skeleton-tabs.css>
-  <script src=/libs/external/skeleton_tabs/skeleton-tabs.js></script>
+    .lightbox figure {
+      margin: 0;
+      max-width: min(94vw, 1200px);
+      max-height: 90vh;
+    }
 
-  <!-- Timeline
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="stylesheet" href=/libs/external/timeline.css>
-  <link rel="stylesheet" href=/libs/custom/my_css.css>
+    .lightbox img {
+      display: block;
+      width: 100%;
+      max-height: 78vh;
+      object-fit: contain;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+    }
 
-  <!-- Scripts
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <!--<link rel="stylesheet" href=/libs/external/github-prettify-theme.css>-->
-  <script src=/libs/custom/my_js.js></script>
+    .close-lightbox {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      color: #fff;
+      border-radius: 999px;
+      width: 38px;
+      height: 38px;
+      background: transparent;
+      font-size: 1rem;
+      cursor: pointer;
+    }
 
-  <!-- Favicon
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <!--<link rel="icon" type="image/png" href=/libs/icon.png>
-  <link rel="shortcut icon" type="image/png" href=/libs/icon.png>-->
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
 
-  <!-- Google Analytics -->
-  
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LR59WTW1QS"></script>
+    @media (max-width: 1024px) {
+      .hero .shell {
+        grid-template-columns: 260px 1fr;
+        gap: 1.4rem;
+      }
 
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+      .media-grid,
+      .art-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 
-  gtag('config', 'G-LR59WTW1QS');
-</script>
+      #art .art-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+    }
 
+    @media (max-width: 800px) {
+      .shell { width: min(var(--max), calc(100% - 1.6rem)); }
 
+      .site-nav .shell {
+        flex-direction: column;
+        align-items: flex-start;
+      }
 
+      .nav-links { justify-content: flex-start; }
+
+      .hero .shell {
+        grid-template-columns: 1fr;
+        padding-top: 2.4rem;
+      }
+
+      .portrait-wrap { max-width: 220px; }
+
+      .grid-3,
+      .focus-grid,
+      .list-grid,
+      .project-grid { grid-template-columns: 1fr; }
+
+      .project-card { grid-template-columns: 92px 1fr; }
+
+      .project-card img {
+        width: 92px;
+        height: 92px;
+      }
+
+      .media-grid,
+      .art-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+      #art .art-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 520px) {
+      .site-nav .shell {
+        padding-top: 0.7rem;
+        padding-bottom: 0.7rem;
+      }
+
+      .brand {
+        font-size: 1rem;
+      }
+
+      .nav-links {
+        gap: 0.55rem 0.75rem;
+      }
+
+      .nav-links a {
+        font-size: 0.8rem;
+      }
+
+      .hero-meta {
+        gap: 0.45rem;
+      }
+
+      .icon-link {
+        font-size: 0.8rem;
+        padding: 0.35rem 0.6rem;
+      }
+
+      .media-grid,
+      .art-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+      #art .art-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+
+    @media screen and (max-width: 1000px) {
+      #cv .timeline {
+        max-width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
-  <button id="theme-toggle" class="theme-toggle theme-toggle-floating" type="button" aria-label="Switch to dark mode" aria-pressed="false">
-    <i class="fa fa-moon-o" aria-hidden="true"></i>
-    <span class="sr-only">Toggle dark mode</span>
-  </button>
+  <nav class="site-nav">
+    <div class="shell">
+      <div class="brand">Fiona Victoria</div>
+      <div class="nav-links">
+        <a href="#bio">Bio</a>
+        <a href="#talks">Talks</a>
+        <a href="#publications">Publications</a>
+        <a href="#blogs">Blogs</a>
+        <a href="#media">Media</a>
+        <a href="#cv">CV</a>
+        <a href="#projects">Projects</a>
+        <a href="#art">Art</a>
+      </div>
+    </div>
+  </nav>
 
-  <!-- Primary Page Layout
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <div class="container">
-
-    <section class="header">
-      <div class="row">
-        <div class="three columns">
-          <a href="/"><img title="" class="u-max-full-width" src='assets/profile-pics/SU_small.jpg'></a>
+  <header class="hero">
+    <div class="shell">
+      <div class="portrait-wrap reveal">
+        <img src="/assets/profile-pics/SU_small.jpg" alt="Portrait of Fiona Victoria Stanley Jothiraj">
+      </div>
+      <div class="reveal">
+        <p class="eyebrow">PhD in Artificial Intelligence at Oregon State University</p>
+        <h1>Fiona Victoria Stanley Jothiraj</h1>
+        <p>
+          Research Areas: AI for Social Good, Ecological Machine Learning, Generative AI, Federated Learning, and Trustworthy Machine Learning.
+        </p>
+        <div class="hero-meta">
+          <span class="chip">Beaverton, OR</span>
+          <span class="chip">Provost Distinguished Scholarship Recipient</span>
+          <span class="chip">fiona.victoria@gmail.com</span>
         </div>
-        <div class="nine columns main-description">
-            <h2><span class="name-strong">Fiona Victoria</span> Stanley Jothiraj</h2>
-            <p>(she/her)</p>
-            <p>PhD in Artificial Intelligence at Oregon State University</p>
-            <i> Provost Distinguished Scholarship Recipient </i> 
-            <!--<p>MS in Computer Science at the University of Washington Bothell</p>-->
-            <p>Beaverton OR</p>
-            <p>fiona.victoria@gmail.com</p>
-            <p>
-              <span onclick="window.open('https://www.linkedin.com/in/fionavictoria')" style="cursor: pointer">
-                <i class="fa fa-linkedin-square" aria-hidden="true"></i>
-              </span>
-
-              <span onclick="window.open('https://github.com/fionavictoria')" style="cursor: pointer">
-                <i class="fa fa-github" aria-hidden="true"></i>
-              </span>
-
-              <span onclick="window.open('https://scholar.google.com/citations?user=jKYhsdsAAAAJ&hl=en')" style="cursor: pointer">
-                <i class="ai ai-google-scholar ai-lg" aria-hidden="true"></i>
-              </span>
-              
-              <span onclick="window.open('https://www.semanticscholar.org/author/Fiona-Victoria-Stanley-Jothiraj/2184773396')" style="cursor: pointer">
-               <i class="ai ai-semantic-scholar-square ai-lg" aria-hidden="true"></i>
-              </span>
-
-              <span onclick="window.open('https://orcid.org/0000-0002-9855-1219')" style="cursor: pointer">
-                <i class="ai ai-orcid ai-lg" aria-hidden="true"></i>
-              </span>
-            </p>
+        <div class="links-row">
+          <a class="icon-link" href="https://www.linkedin.com/in/fionavictoria" target="_blank" rel="noopener noreferrer"><i class="fa fa-linkedin"></i>LinkedIn</a>
+          <a class="icon-link" href="https://github.com/fionavictoria" target="_blank" rel="noopener noreferrer"><i class="fa fa-github"></i>GitHub</a>
+          <a class="icon-link" href="https://scholar.google.com/citations?user=jKYhsdsAAAAJ&hl=en" target="_blank" rel="noopener noreferrer"><i class="ai ai-google-scholar"></i>Scholar</a>
+          <a class="icon-link" href="https://www.semanticscholar.org/author/Fiona-Victoria-Stanley-Jothiraj/2184773396" target="_blank" rel="noopener noreferrer"><i class="ai ai-semantic-scholar-square"></i>Semantic Scholar</a>
+          <a class="icon-link" href="https://orcid.org/0000-0002-9855-1219" target="_blank" rel="noopener noreferrer"><i class="ai ai-orcid"></i>ORCID</a>
         </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section id="bio" class="reveal">
+      <h2>Bio</h2>
+      <p class="section-lead">
+        I’m a PhD student in Artificial Intelligence at Oregon State University, specializing in AI for Social Good and Applied AI/ML in Ecology. My research focuses on utilizing ML-based species distribution modeling algorithms to demonstrate better predictability with the choice of habitat characterization. Additionally, I am investigating plant-pollinator interactions over a decade of environmental change using hierarchical occupancy modeling, uncovering critical insights into the dynamics of the ecosystem.
+      </p>
+      <p class="section-lead">
+        Prior to this, I worked in the industry on multi-modal AI systems and neural network quantization techniques. I have also contributed extensively to generative models and federated learning as part of privacy-preserving initiatives in machine learning.
+      </p>
+    </section>
+
+    <section id="talks" class="reveal">
+      <h2>Invited Talks</h2>
+      <div class="pub-list">
+        <article class="card"><h3>ICCV CVAM Workshop, Oct 2025</h3><p>Invited talk on the role of Generative AI in Advertisement and Marketing. <a href="https://cvam-workshop.github.io/speakers/" target="_blank" rel="noopener noreferrer">Link</a></p></article>
+        <article class="card"><h3>Decentralized AI Hackathon @ Stanford, Sep 2025</h3><p>Invited talk on Federated Learning for Generative Models. <a href="https://flower.ai/events/decentralized-ai-hackathon-2025/" target="_blank" rel="noopener noreferrer">Link</a></p></article>
+        <article class="card"><h3>University of Washington, May 2025</h3><p>Invited talk for the graduate level course: Advanced Topics in Data Privacy.</p></article>
+        <article class="card"><h3>Flower Monthly, Aug 2023</h3><p>Invited talk on "Phoenix: A Federated Generative Diffusion Model." <a href="https://www.youtube.com/watch?v=hKosoBFO7Po" target="_blank" rel="noopener noreferrer">Video</a></p></article>
       </div>
     </section>
 
-    <div class="navbar-spacer"></div>
-    <nav class="navbar">
-      <div class="container">
-        <ul class="navbar-list">
-          <li class="navbar-item"><a class="navbar-link" href=/index.html#bio>Bio</a></li>
-          <li class="navbar-item"><a class="navbar-link" href=/index.html#talks>Invited Talks</a></li>
-          <li class="navbar-item"><a class="navbar-link" href=/index.html#publications>Publications</a></li>
-          <li class="navbar-item"><a class="navbar-link" href=/index.html#blogs>Blogs</a></li>
-          <li class="navbar-item"><a class="navbar-link" href=/index.html#media>Media</a></li>
-          <li class="navbar-item"><a class="navbar-link" href=/index.html#resume>CV</a></li>
-          <li class="navbar-item"><a class="navbar-link" href=/index.html#projects>Projects</a></li>
-          <li class="navbar-item"><a class="navbar-link" href=/index.html#art>Art</a></li>
-        </ul>
+    <section id="publications" class="reveal">
+      <h2>Publications</h2>
+      <p class="section-lead">Most recent publications on <a href="https://scholar.google.com/citations?user=jKYhsdsAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>.</p>
+      <div class="pub-list">
+        <article class="pub-card">
+          <h3>DECOR: Deep Embedding Clustering with Orientation Robustness</h3>
+          <p>Fiona Victoria Stanley Jothiraj, Arunaggiri Pandian, Seth A. Eichmeyer<br>AAAI 2026 Bridge Program on Knowledge-guided Machine Learning. Also selected at AAAI 2026 Workshop on AI2ASE</p>
+          <div class="pub-meta"><a href="https://arxiv.org/abs/2510.03328" target="_blank" rel="noopener noreferrer">PDF</a></div>
+        </article>
+        <article class="pub-card">
+          <h3>Species distribution model performance improves when habitat characterizations<br>are centered on detected individuals instead of observers</h3>
+          <p>Fang-Yu Shen, Fiona Victoria Stanley Jothiraj, Rebecca A Hutchinson, Tyler A Hallman, Jenna R Curtis, W Douglas Robinson<br>Ecological Indicators, 2025</p>
+          <div class="pub-meta"><a href="https://www.sciencedirect.com/science/article/pii/S1470160X25004765" target="_blank" rel="noopener noreferrer">PDF</a></div>
+        </article>
+        <article class="pub-card">
+          <h3>Phoenix: A Federated Generative Diffusion Model</h3>
+          <p>Fiona Victoria Stanley Jothiraj, Afra Mashhadi<br>ACM The Web Conference (WWW) 2024</p>
+          <div class="pub-meta">
+            <a href="https://dl.acm.org/doi/10.1145/3589335.3651935" target="_blank" rel="noopener noreferrer">PDF</a>
+            <a href="https://www.youtube.com/watch?v=EsCX3QH8XjA" target="_blank" rel="noopener noreferrer">Video</a>
+          </div>
+        </article>
+        <article class="pub-card">
+          <h3>Nostalgia on Twitter: Detection and Analysis of a Large-Scale Dataset</h3>
+          <p>Fiona Victoria Stanley Jothiraj, Lingzi Hong, Afra Mashhadi<br>ASIS&amp;T 2024</p>
+          <div class="pub-meta"><a href="https://asistdl.onlinelibrary.wiley.com/doi/abs/10.1002/pra2.1033" target="_blank" rel="noopener noreferrer">PDF</a></div>
+        </article>
+        <article class="pub-card">
+          <h3>Empirical Dynamic Modelling of the Multi-Source Park Visitation Data</h3>
+          <p>Vahid Shamsaddini, Fiona Victoria Stanley Jothiraj, Mandy Chen, Afra Mashhadi<br>Data for Policy Conference 2022</p>
+          <div class="pub-meta">
+            <a href="https://zenodo.org/record/6998909#.Y5ek6-zMKDc" target="_blank" rel="noopener noreferrer">PDF</a>
+            <a href="https://youtu.be/tnuudxSYJpc" target="_blank" rel="noopener noreferrer">Video</a>
+          </div>
+        </article>
+        <article class="pub-card">
+          <h3>Personalized Emotion Detection using IoT and Machine Learning</h3>
+          <p>Fiona Victoria Stanley Jothiraj, Afra Mashhadi<br>ArXiv, 2022</p>
+          <div class="pub-meta">
+            <a href="https://arxiv.org/abs/2209.06464" target="_blank" rel="noopener noreferrer">PDF</a>
+            <a href="https://github.com/fionavictoria/MLEmotionDetection" target="_blank" rel="noopener noreferrer">Code</a>
+          </div>
+        </article>
+        <article class="pub-card">
+          <h3>Time Series Prediction for Food sustainability</h3>
+          <p>Fiona Victoria Stanley Jothiraj<br>ArXiv, 2022</p>
+          <div class="pub-meta">
+            <a href="https://arxiv.org/abs/2209.06889" target="_blank" rel="noopener noreferrer">PDF</a>
+            <a href="https://github.com/fionavictoria/MLFoodSustainability" target="_blank" rel="noopener noreferrer">Code</a>
+          </div>
+        </article>
       </div>
-    </nav>
+    </section>
 
-    <script>
-function unhide(divID) {
-  console.log(divID)
-  var item = document.getElementById(divID);
-  console.log('hi')
-  if (item){
-    item.className=(item.className=='hidden')?'unhidden':'hidden';
-  }
-}
-</script>
-
-<!-- ========== BIO ========== -->
-
-<div class="docs-section">
-  <span class="anchor" id="bio"></span>
-  <h4>Bio</h4>
-  <p>
-  I’m a PhD student in Artificial Intelligence at Oregon State University, 
-  specializing in AI for Social Good and Applied AI/ML in Ecology. My research focuses 
-  on utilizing ML-based species distribution modeling algorithms to demonstrate better 
-  predictability with the choice of habitat characterization.  
-  Additionally, I am investigating plant-pollinator interactions over a decade of 
-  environmental change using hierarchical occupancy modeling, uncovering critical insights into 
-  the dynamics of the ecosystem.
-  </p>
-  
-  <p>
-  Prior to this, I worked in the industry on multi-modal AI systems and neural network quantization 
-  techniques. I have also contributed extensively to generative models and federated learning as 
-  part of privacy-preserving initiatives in machine learning.
-  </p>
-</div>
-
-<!-- ========== INVITED TALKS ================= -->
-    
-<span class="anchor" id="talks"></span>
-
-<div class="docs-section" id="talks-section">
-  <h4>Invited Talks</h4>
-  <div class="tab-content">    
-      <div class="tab-pane active" id="papers-all">
-           <span class="anchor" id="JKOICNN"></span>
-            <div class="paper">
-              <p class="title">
-                1. ICCV CVAM Workshop, Oct 2025 - Invited talk on the role of Generative AI in Advertisement and Marketing
-                <a href="https://cvam-workshop.github.io/speakers/">[link]</a></p>
-            </div>
-            <div class="paper">
-              <p class="title">
-                2. Decentralized AI Hackathon @ Stanford, Sep 2025 - Invited talk on Federated Learning for Generative Models
-                <a href="https://flower.ai/events/decentralized-ai-hackathon-2025/">[link]</a></p>
-            </div>
-            <div class="paper">
-              <p class="title">
-                3. University of Washington, May 2025 - Invited Talk for the graduate level course Advanced Topics in Data Privacy </p>
-            </div>
-            <div class="paper">
-              <p class="title">
-                4. Flower Monthly, Aug 2023 - Invited Talk on "Phoenix: A Federated Generative Diffusion Model" 
-                <a href="https://www.youtube.com/watch?v=hKosoBFO7Po">[link]</a></p>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- ========== PUBLICATIONS ========== -->
-<span class="anchor" id="publications"></span>
-
-<div class="docs-section">
-  <h4>Publications</h4>
-
-  <p>Most recent publications on <a href="https://scholar.google.com/citations?user=jKYhsdsAAAAJ&hl=en" target="_blank">Google Scholar</a>.</p>
-
-  <div class="tab-content">    
-      <div class="tab-pane active" id="papers-all">
-
-            <span class="anchor" id="JKOICNN"></span>
-            <div class="paper">
-              <p class="title"><b>DECOR: Deep Embedding Clustering with Orientation Robustness</b></p>
-              <p><span class="paper-author-highlight">Fiona Victoria Stanley Jothiraj</span>, Arunaggiri Pandian, Seth A. Eichmeyer</p>
-              <p><i>AAAI 2026 Bridge Program on Knowledge-guided Machine Learning</i></p>
-              <p><i>Also selected at the AAAI 2026 Workshop on AI to Accelerate Science and Engineering (AI2ASE)</i></p>
-              <div class="paper-buttons">
-
-                   <a class="button" href="https://arxiv.org/abs/2510.03328" target="_blank">pdf</a>
-              </div>
-            </div>
-        
-            <span class="anchor" id="JKOICNN"></span>
-            <div class="paper">
-              <p class="title"><b>Species distribution model performance improves when habitat characterizations are centered on detected individuals instead of observers</b></p>
-              <p>Fang-Yu Shen, <span class="paper-author-highlight">Fiona Victoria Stanley Jothiraj</span>, Rebecca A Hutchinson, Tyler A Hallman, Jenna R Curtis, W Douglas Robinson</p>
-              <p><i>Ecological Indicators 2025</i></p>
-              <div class="paper-buttons">
-
-                   <a class="button" href="https://www.sciencedirect.com/science/article/pii/S1470160X25004765" target="_blank">pdf</a>
-              </div>
-            </div>
-
-            <span class="anchor" id="JKOICNN"></span>
-            <div class="paper">
-              <p class="title"><b>Phoenix: A Federated Generative Diffusion Model</b></p>
-              <p><span class="paper-author-highlight">Fiona Victoria Stanley Jothiraj</span>, Afra Mashhadi</p>
-              <p><i>ACM The Web Conference (WWW) 2024 Conference</i></p>
-              <div class="paper-buttons">
-
-                   <a class="button" href="https://dl.acm.org/doi/10.1145/3589335.3651935" target="_blank">pdf</a>
-                   <a class="button" href="https://www.youtube.com/watch?v=EsCX3QH8XjA" target="_blank">video</a>
-              </div>
-            </div>
-              
-            <span class="anchor" id="JKOICNN"></span>
-            <div class="paper">
-              <p class="title"><b>Nostalgia on Twitter: Detection and Analysis of a Large-Scale Dataset</b></p>
-              <p><span class="paper-author-highlight">Fiona Victoria Stanley Jothiraj</span>, Lingzi Hong, Afra Mashhadi </p>
-              <p><i>ASIS&T 2024</i></p>
-              <div class="paper-buttons">
-                <a class="button" href="https://asistdl.onlinelibrary.wiley.com/doi/abs/10.1002/pra2.1033" target="_blank">pdf</a>
-              </div>
-            </div>
-
-
-            <span class="anchor" id="JKOICNN"></span>
-            <div class="paper">
-              <p class="title"><b>Empirical Dynamic Modelling of the Multi-Source Park Visitation Data</b></p>
-              <p>Vahid Shamsaddini, <span class="paper-author-highlight">Fiona Victoria Stanley Jothiraj</span>, Mandy Chen, and Afra Mashhadi</p>
-              <p><i>Data for Policy Conference 2022</i></p>
-              <div class="paper-buttons">
-
-                      <a class="button" href="https://zenodo.org/record/6998909#.Y5ek6-zMKDc" target="_blank">pdf</a>
-                      <a class="button" href="https://youtu.be/tnuudxSYJpc" target="_blank">video</a>
-                    
-              </div>
-            </div>
-        
-            <span class="anchor" id="JKOICNN"></span>
-            <div class="paper">
-              <p class="title"><b>Personalized Emotion Detection using IoT and Machine Learning</b></p>
-              <p><span class="paper-author-highlight">Fiona Victoria Stanley Jothiraj</span>, Afra Mashhadi</p>
-              <p><i>ArXiv 2022</i></p>
-              <div class="paper-buttons">
-
-                      <a class="button" href="https://arxiv.org/abs/2209.06464" target="_blank">pdf</a>
-                      <a class="button" href="https://github.com/fionavictoria/MLEmotionDetection" target="_blank">code</a>
-                    
-              </div>
-            </div>
-          
-            <span class="anchor" id="JKOICNN"></span>
-            <div class="paper">
-              <p class="title"><b>Time Series Prediction for Food sustainability</b></p>
-              <p><span class="paper-author-highlight">Fiona Victoria Stanley Jothiraj</span></p>
-              <p><i>ArXiv 2022</i></p>
-              <div class="paper-buttons">
-
-                      <a class="button" href="https://arxiv.org/abs/2209.06889" target="_blank">pdf</a>
-                      <a class="button" href="https://github.com/fionavictoria/MLFoodSustainability" target="_blank">code</a>
-                    
-              </div>
-            </div>
-
-            </div>
-           <!-- paper in category filter -->
-         <!-- over papers -->
+    <section id="blogs" class="reveal">
+      <h2>Blogs</h2>
+      <div class="list-grid">
+        <article class="card"><h3>My Journey to PhD Admission in Artificial Intelligence</h3><p><a href="https://towardsdatascience.com/my-journey-to-phd-admission-in-artificial-intelligence-35593adb923f" target="_blank" rel="noopener noreferrer">Towards Data Science - Medium</a></p></article>
+        <article class="card"><h3>Untangling Azure IoT Hub and Stream Analytics</h3><p><a href="https://medium.com/@fiona.victoria/untangling-azure-iot-hub-and-stream-analytics-a9b5850f1a3d" target="_blank" rel="noopener noreferrer">Medium</a></p></article>
+        <article class="card"><h3>An Introduction to AWS IoT Core</h3><p><a href="https://medium.com/aws-in-plain-english/untangling-aws-iot-core-9979f69e4628" target="_blank" rel="noopener noreferrer">Medium</a></p></article>
       </div>
-     <!-- over categories -->
-</div>
+    </section>
 
-
-<!-- ========== BLOGS ================= -->
-    
-<span class="anchor" id="blogs"></span>
-
-<div class="docs-section" id="blogs-section">
-  <h4>Blogs</h4>
-
-  <div class="tab-content">    
-      <div class="tab-pane active" id="papers-all">
-            <div class="paper">
-              <p class="title">
-                1. My Journey to PhD Admission in Artificial Intelligence 
-                <a href="https://towardsdatascience.com/my-journey-to-phd-admission-in-artificial-intelligence-35593adb923f"> [Towards Data Science - Medium] </a></p>
-            </div>
-            
-            <div class="paper">
-              <p class="title">
-                2. Untangling Azure IoT Hub and Stream Analytics 
-                <a href="https://medium.com/@fiona.victoria/untangling-azure-iot-hub-and-stream-analytics-a9b5850f1a3d"> [Medium] </a></p>
-            </div>
-        
-            <div class="paper">
-              <p class="title">
-                3. An Introduction to AWS IoT Core <a href="https://medium.com/aws-in-plain-english/untangling-aws-iot-core-9979f69e4628"> [Medium] </a></p>
-            </div>
-
-        </div>
-           <!-- paper in category filter -->
-         <!-- over papers -->
+    <section id="media" class="reveal">
+      <h2>Media</h2>
+      <div class="list-grid">
+        <article class="card list-card">
+          <h3>Featured Coverage</h3>
+          <ul>
+            <li><a href="https://engineering.oregonstate.edu/all-stories/ai-student-leverages-osus-interdisciplinary-strengths" target="_blank" rel="noopener noreferrer">Oregon State University</a> - AI student leverages OSU's interdisciplinary strengths</li>
+            <li><a href="https://semiengineering.com/grouping-complex-wafer-defect-patterns-into-meaningful-clusters-oregon-state-univ-micron/" target="_blank" rel="noopener noreferrer">Semiconductor Engineering</a> - Grouping Complex Wafer Defect Patterns Into Meaningful Clusters</li>
+            <li><a href="https://www.thehindu.com/news/cities/Coimbatore/app-for-plus-two-students/article7179302.ece" target="_blank" rel="noopener noreferrer">The Hindu</a> - App for Plus Two Students</li>
+            <li><a href="https://www.deccanchronicle.com/150505/nation-current-affairs/article/plus-2-student-develops-marks-app-kovai?page=2" target="_blank" rel="noopener noreferrer">Deccan Chronicle</a> - 12th Standard Student Develops App for Engineering Aspirants</li>
+            <li><a href="https://www.business-standard.com/article/pti-stories/school-girl-develops-app-for-tn-engg-aspirants-115050400813_1.html" target="_blank" rel="noopener noreferrer">Business Standard</a> - School Girl Develops App for TN Engineering Aspirants</li>
+            <li><a href="https://www.india.com/education/school-girl-develops-application-for-tamil-nadu-engineering-aspirants-for-calculating-cut-offs-1583132/" target="_blank" rel="noopener noreferrer">India.com</a> - School Girl Develops Application for Tamil Nadu Engineering Aspirants</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Media Gallery</h3>
+          <p>Click any image to view full size.</p>
+          <div class="media-grid" id="media-grid"></div>
+        </article>
       </div>
-     <!-- over categories -->
-</div>
+    </section>
 
-<!-- ========== MEDIA ================= -->
-    
-<span class="anchor" id="media"></span>
-<style>
-  /* Grid layout for images */
-  .media-gallery {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 5 columns */
-    gap: 10px;
-    max-width: 100%;
-    margin-top: 20px;
-  }
-
-  .media-gallery img {
-    width: 100%;
-    height: auto;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: transform 0.3s ease;
-  }
-
-  .media-gallery img:hover {
-    transform: scale(1.05);
-  }
-
-  /* Lightbox overlay */
-  .lightbox {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    z-index: 1000;
-  }
-
-  /* Lightbox content (centered) */
-  .lightbox-content {
-    position: relative;
-    background: var(--surface-color);
-    color: var(--text-color);
-    padding: 15px;
-    border-radius: 10px;
-    text-align: center;
-    max-width: 80%;
-    max-height: 80%;
-    overflow: hidden;
-  }
-
-  .lightbox img {
-    max-width: 100%;
-    max-height: 70vh;
-    border-radius: 10px;
-    display: block;
-    margin: 0 auto;
-  }
-
-  /* Close button */
-  .close-btn {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 25px;
-    color: var(--text-color);
-    cursor: pointer;
-    background: rgba(0, 0, 0, 0.2);
-    padding: 5px 10px;
-    border-radius: 5px;
-  }
-
-  .close-btn:hover {
-    background: rgba(0, 0, 0, 0.35);
-    color: var(--text-color);
-  }
-
-  html[data-theme="dark"] .close-btn:hover {
-    background: rgba(255, 255, 255, 0.4);
-  }
-
-  .back-to-media:hover {
-    background: #0056b3;
-  }
-
-  /* Responsive layout adjustments */
-  @media (max-width: 768px) {
-    .media-gallery {
-      grid-template-columns: repeat(3, 1fr); /* 3 columns on tablets */
-    }
-  }
-
-  @media (max-width: 480px) {
-    .media-gallery {
-      grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
-    }
-  }
-</style>
-
-<div class="docs-section" id="media-section">
-  <h4>Media</h4>
-
-  <div class="tab-content">    
-      <div class="tab-pane active" id="papers-all">
-
-        <div class="media-appearances">
-          <p class="title">
-            1. <a href="https://engineering.oregonstate.edu/all-stories/ai-student-leverages-osus-interdisciplinary-strengths">Oregon State University</a> - AI student leverages OSU’s interdisciplinary strengths
-          </p>
-        </div>
-        
-        <div class="media-appearances">
-          <p class="title">
-            2. <a href="https://semiengineering.com/grouping-complex-wafer-defect-patterns-into-meaningful-clusters-oregon-state-univ-micron/">Semiconductor Engineering</a> - Grouping Complex Wafer Defect Patterns Into Meaningful Clusters
-          </p>
-        </div>
-        
-        <div class="media-appearances">
-          <p class="title">
-            3. <a href="https://www.thehindu.com/news/cities/Coimbatore/app-for-plus-two-students/article7179302.ece">The Hindu</a> - App for Plus Two Students
-          </p>
-        </div>
-        
-        <div class="media-appearances">
-          <p class="title">
-            4. <a href="https://www.deccanchronicle.com/150505/nation-current-affairs/article/plus-2-student-develops-marks-app-kovai?page=2">Deccan Chronicle</a> - 12th Standard Student Develops App for Engineering Aspirants
-          </p>
-        </div>
-
-        <div class="media-appearances">
-          <p class="title">
-            5. <a href="https://www.business-standard.com/article/pti-stories/school-girl-develops-app-for-tn-engg-aspirants-115050400813_1.html">Business Standard</a> - School Girl Develops App for TN Engg Aspirants
-          </p>
-        </div>
-
-        <div class="media-appearances">
-          <p class="title">
-            6. <a href="https://www.india.com/education/school-girl-develops-application-for-tamil-nadu-engineering-aspirants-for-calculating-cut-offs-1583132/">India.com</a> - School Girl Develops Application for Tamil Nadu Engg Aspirants
-          </p>
-        </div>
-
+    <section id="cv" class="reveal">
+      <h2>CV</h2>
+      <div class="cta">
+        <a class="btn primary" href="/assets/cv/cv_web.pdf" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf-o"></i>Open Full CV (PDF)</a>
       </div>
+      <ul class="timeline">
+        <li>
+          <div class="direction-l">
+            <div class="flag-wrapper">
+              <span class="flag">Micron Technology</span>
+              <span class="time-wrapper"><span class="time">June 2024/2025 - Sep 2024/2025</span></span>
+            </div>
+            <div class="desc">AI Research Intern</div>
+          </div>
+        </li>
+        <li>
+          <div class="direction-l">
+            <div class="flag-wrapper">
+              <span class="flag">ML QuESt Research Lab at OSU</span>
+              <span class="time-wrapper"><span class="time">Oct 2023 - Present</span></span>
+            </div>
+            <div class="desc">Graduate Research Assistant</div>
+          </div>
+        </li>
+        <li>
+          <div class="direction-r">
+            <div class="flag-wrapper">
+              <span class="flag">Oregon State University</span>
+              <span class="time-wrapper"><span class="time">Sep 2023 - Present</span></span>
+            </div>
+            <div class="desc">Ph.D in Artificial Intelligence</div>
+          </div>
+        </li>
+        <li>
+          <div class="direction-l">
+            <div class="flag-wrapper">
+              <span class="flag">Harvard in Tech</span>
+              <span class="time-wrapper"><span class="time">June 2023 - Oct 2023</span></span>
+            </div>
+            <div class="desc">Data Scientist</div>
+          </div>
+        </li>
+        <li>
+          <div class="direction-l">
+            <div class="flag-wrapper">
+              <span class="flag">Research Lab at UW Bothell</span>
+              <span class="time-wrapper"><span class="time">June 2022 - Jan 2023</span></span>
+            </div>
+            <div class="desc">Graduate Research Assistant</div>
+          </div>
+        </li>
+        <li>
+          <div class="direction-r">
+            <div class="flag-wrapper">
+              <span class="flag">University of Washington Bothell</span>
+              <span class="time-wrapper"><span class="time">Sep 2021 - June 2023</span></span>
+            </div>
+            <div class="desc">M.S. in Computer Science and Software Engineering</div>
+          </div>
+        </li>
+        <li>
+          <div class="direction-l">
+            <div class="flag-wrapper">
+              <span class="flag">Multicoreware Inc</span>
+              <span class="time-wrapper"><span class="time">2019 - 2020</span></span>
+            </div>
+            <div class="desc">Machine Learning Engineer</div>
+          </div>
+        </li>
+        <li>
+          <div class="direction-l">
+            <div class="flag-wrapper">
+              <span class="flag">Multicoreware Inc</span>
+              <span class="time-wrapper"><span class="time">2018 - 2019</span></span>
+            </div>
+            <div class="desc">Machine Learning Intern</div>
+          </div>
+        </li>
+        <li>
+          <div class="direction-r">
+            <div class="flag-wrapper">
+              <span class="flag">PSG College of Technology</span>
+              <span class="time-wrapper"><span class="time">July 2015 - May 2019</span></span>
+            </div>
+            <div class="desc">B.E. in Robotics and Automation Engineering<br>First Class with Distinction</div>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section id="projects" class="reveal">
+      <h2>Projects</h2>
+      <div class="project-grid">
+        <a class="card project-card" href="https://github.com/fionavictoria/MLFoodSustainability" target="_blank" rel="noopener noreferrer">
+          <img src="/assets/projects/timeseries/thumbnail.png" alt="Time series project thumbnail">
+          <div><h3>Time Series Prediction for Food Sustainability</h3><p>Statistical regression-based ML system to predict top-k food crops likely to endure shortages by country.</p></div>
+        </a>
+        <a class="card project-card" href="https://github.com/fionavictoria/MLEmotionDetection" target="_blank" rel="noopener noreferrer">
+          <img src="/assets/projects/emotiondetection/thumbnail.png" alt="Emotion detection project thumbnail">
+          <div><h3>Personalized Emotion Detection using IoT and Machine Learning</h3><p>Non-invasive IoT system that tracks patient emotions, including autism-focused applications.</p></div>
+        </a>
+        <a class="card project-card" href="https://github.com/fionavictoria/ImageRestoration_CUDA" target="_blank" rel="noopener noreferrer">
+          <img src="/assets/projects/cuda/thumbnail.png" alt="CUDA project thumbnail">
+          <div><h3>Accelerated Image Restoration using CUDA</h3><p>Designed CUDA kernels from scratch to accelerate image reconstruction.</p></div>
+        </a>
+        <a class="card project-card" href="https://github.com/fionavictoria/MLSpatioTemporalTrafficFatality" target="_blank" rel="noopener noreferrer">
+          <img src="/assets/projects/spatiotemporal/thumbnail.png" alt="Spatio-temporal project thumbnail">
+          <div><h3>Spatio-Temporal Forecast Modeling and Fairness of Traffic Fatality</h3><p>Forecasting traffic fatality hotspots in the United States using deep learning and fairness-aware modeling.</p></div>
+        </a>
+      </div>
+    </section>
+
+    <section id="art" class="reveal">
+      <h2>Art</h2>
+      <p class="section-lead">Click any artwork to expand.</p>
+      <div class="art-grid" id="art-grid"></div>
+    </section>
+
+  </main>
+
+  <div class="shell footer">
+    <span>Fiona Victoria Stanley Jothiraj · Last updated in Feb 2026.</span>
+    <span>fiona.victoria@gmail.com</span>
   </div>
 
-  <!-- Media Gallery -->
-  <div class="media-gallery" id="mediaGallery"></div>
-
-  <!-- Lightbox for full-size image preview -->
-  <div class="lightbox" id="lightbox">
-    <div class="lightbox-content">
-      <span class="close-btn" onclick="closeLightbox()">&times;</span>
-      <img id="lightboxImage">
-    </div>
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="close-lightbox" id="lightbox-close" aria-label="Close image viewer">&times;</button>
+    <figure>
+      <img id="lightbox-image" src="" alt="Expanded preview">
+    </figure>
   </div>
 
-</div>
+  <script>
+    (function () {
+      var navLinks = Array.prototype.slice.call(document.querySelectorAll('.nav-links a'));
+      var sections = Array.prototype.slice.call(document.querySelectorAll('main section[id]'));
+      var revealItems = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
 
-<script>
-  $(document).ready(function(){
-    var imageFolder = 'assets/media/'; // Image folder path
-    var galleryContainer = $('#mediaGallery');
-    var maxImages = 10; // 5 columns x 2 rows
+      var revealObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
 
-    // Dynamically add images to gallery
-    for (var i = 1; i <= maxImages; i++) {
-      let imageURL = imageFolder + 'image' + i + '.jpg';
-
-      let imageHTML = `<img src="${imageURL}" alt="Media ${i}" onclick="openLightbox('${imageURL}')">`;
-      galleryContainer.append(imageHTML);
-    }
-  });
-
-  // Function to open image in lightbox
-  function openLightbox(imageSrc) {
-    $('#lightboxImage').attr('src', imageSrc);
-    $('#lightbox').fadeIn();
-  }
-
-  // Function to close the lightbox
-  function closeLightbox() {
-    $('#lightbox').fadeOut();
-  }
-
-  // Function to close the lightbox and scroll back to the media section
-  function closeLightboxAndScroll() {
-    $('#lightbox').fadeOut();
-    $('html, body').animate({
-      scrollTop: $('#media-section').offset().top - 50
-    }, 500);
-  }
-</script>
-
-
-<!-- ========== RESUME ========== -->
-<span class="anchor" id="resume"></span>
-<div class="docs-section">
-  <h4>CV</h4>
-
-  <p>Full CV in <a href=assets/cv/cv_web.pdf target="_blank">PDF</a></p>
-
-  <!-- The Timeline -->
-  <ul class="timeline">
-
-    <li>   
-      <div class="direction-l">
-        <div class="flag-wrapper">
-          <span class="flag">Micron Technology</span>
-          <span class="time-wrapper"><span class="time">June 2024/2025 - Sep 2024/2025</span></span>
-        </div>
-        <div class="desc"><b>AI Research Intern</b></div>
-      </div>
-    </li>
-    
-    <li>   
-      <div class="direction-l">
-        <div class="flag-wrapper">
-          <span class="flag">ML QuESt Research Lab at OSU</span>
-          <span class="time-wrapper"><span class="time">Oct 2023 - Present</span></span>
-        </div>
-        <div class="desc"><b>Graduate Research Assistant</b></div>
-      </div>
-    </li>
-    
-     <li>   
-      <div class="direction-r">
-        <div class="flag-wrapper">
-          <span class="flag">Oregon State University</span>
-          <span class="time-wrapper"><span class="time">Sep 2023 - Present</span></span>
-        </div>
-        <div class="desc"><b>Ph.D in Artificial Intelligence</b></div>
-      </div>
-    </li>
-    
-    <li>   
-      <div class="direction-l"> 
-        <div class="flag-wrapper">
-          <span class="flag">Harvard in Tech</span>
-          <span class="time-wrapper"><span class="time">June 2023 - Oct 2023</span></span>
-        </div>
-        <div class="desc"><b>Data Scientist</b></div>
-      </div>
-    </li>
-    
-    <li>   
-      <div class="direction-l">
-        <div class="flag-wrapper">
-          <span class="flag">Research Lab at UW Bothell</span>
-          <span class="time-wrapper"><span class="time">June 2022 - Jan 2023</span></span>
-        </div>
-        <div class="desc"><b>Graduate Research Assistant</b></div>
-      </div>
-    </li>
-    
-    <li>   
-      <div class="direction-r"> 
-        <div class="flag-wrapper">
-          <span class="flag">University of Washington Bothell</span>
-          <span class="time-wrapper"><span class="time">Sep 2021 - June 2023</span></span>
-        </div>
-        <div class="desc"><b>M.S. in Computer Science and Software Engineering</b></div>
-      </div>
-    </li>
- 
-    
-    <li>  
-      <div class="direction-l">  
-        <div class="flag-wrapper">
-          <span class="flag">Multicoreware Inc</span>
-          <span class="time-wrapper"><span class="time">2019 - 2020</span></span>
-        </div>
-        <div class="desc"><b>Machine Learning Engineer</b></div>
-      </div>
-    </li>
-    
-    <li>
-      
-      <div class="direction-l">
-        <div class="flag-wrapper">
-          <span class="flag">Multicoreware Inc</span>
-          <span class="time-wrapper"><span class="time">2018 - 2019</span></span>
-        </div>
-        <div class="desc"><b>Machine Learning Intern</b></div>
-      </div>
-    </li>
-    
-    <li> 
-      <div class="direction-r">   
-        <div class="flag-wrapper">
-          <span class="flag">PSG College of Technology</span>
-          <span class="time-wrapper"><span class="time">July 2015 - May 2019</span></span>
-        </div>
-        <div class="desc"><b>B.E. in Robotics and Automation Engineering</b> <br>First Class with Distinction </div>
-      </div>
-    </li>
-    
-  </ul>
-</div>
-
-<!-- ========== PROJECTS ========== -->
-<span class="anchor" id="projects"></span>
-<div class="docs-section">
-  <h4>Projects</h4>
-
-  <ul class="tab-nav">
-    <li><div class="button active" data-ref="#projects-all">All</div></li>
-  </ul>
-
-  <style>
-    .project-container {
-        display: flex;
-        align-items: center;
-        gap: 15px; /* Space between image and text */
-        margin-bottom: 20px; /* Add space between projects */
-    }
-    .project-image-container {
-        max-width: 100px;
-        flex-shrink: 0; /* Prevents image from shrinking */
-    }
-    .project-caption {
-        flex-grow: 1; /* Allows text to take up remaining space */
-    }
-  </style>
-
-  <div class="tab-content">
-    <div class="tab-pane active" id="projects-all">  
-
-      <div class="project-container">
-        <div class="project-image-container">
-            <a href="https://github.com/fionavictoria/MLFoodSustainability">
-                <img src="assets/projects/timeseries/thumbnail.png" class="u-max-full-width"/>
-            </a>
-        </div>
-        <div class="project-caption">
-            <b>Time Series Prediction for Food Sustainability</b> <br/>
-            Machine learning system using a statistical regression model that can predict the top-k food crops that would endure a shortage in each country in the future.
-        </div>
-    </div>
-    
-    <div class="project-container">
-        <div class="project-image-container">
-            <a href="https://github.com/fionavictoria/MLEmotionDetection">
-                <img src="assets/projects/emotiondetection/thumbnail.png" class="u-max-full-width"/>
-            </a>
-        </div>
-        <div class="project-caption">
-            <b>Personalized Emotion Detection using IoT and Machine Learning</b> <br/>
-            Non-invasive IoT system that tracks patients' emotions, especially those with autism spectrum disorder.
-        </div>
-    </div>
-    
-    <div class="project-container">
-        <div class="project-image-container">
-            <a href="https://github.com/fionavictoria/ImageRestoration_CUDA">
-                <img src="assets/projects/cuda/thumbnail.png" class="u-max-full-width"/>
-            </a>
-        </div>
-        <div class="project-caption">
-            <b>Accelerated Image Restoration using CUDA</b> <br/>
-            Accelerate the reconstruction of images using CUDA parallelization technique by designing CUDA kernels from scratch.
-        </div>
-    </div>
-    
-    <div class="project-container">
-        <div class="project-image-container">
-            <a href="https://github.com/fionavictoria/MLSpatioTemporalTrafficFatality">
-                <img src="assets/projects/spatiotemporal/thumbnail.png" class="u-max-full-width"/>
-            </a>
-        </div>
-        <div class="project-caption">
-            <b>Spatio-Temporal Forecast Modeling and Fairness of Traffic Fatality</b> <br/>
-            Forecasting and deep learning modeling techniques to estimate the hotspots for traffic fatality in the United States.
-        </div>
-    </div>
-
-    </div>
-  </div>  
-</div>
-
-<!-- ========== ART ========== -->
-<!-- Include Slick Carousel CSS -->
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
-
-<!-- Include Slick Carousel JS -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-
-<span class="anchor" id="art"></span>
-<div class="docs-section">
-  <h4>Art</h4>
-
-  <div class="tab-content">
-    <div class="tab-pane active" id="art-all">  
-      <div class="carousel">
-        <div class="carousel-inner" id="imageContainer">
-          <!-- Images will be dynamically loaded here -->
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<script>
-$(document).ready(function(){
-  // Folder where images are stored
-  var imageFolder = 'assets/artworks/';
-  var imageContainer = $('#imageContainer'); // Container to hold images
-  var maxImages = 50; // Maximum images to check
-  var imageList = []; // Store available images
-
-  // Function to check if an image exists
-  function imageExists(imageURL, callback) {
-    var img = new Image();
-    img.onload = function() { callback(true, imageURL); };
-    img.onerror = function() { callback(false, imageURL); };
-    img.src = imageURL;
-  }
-
-  // Function to load images dynamically
-  function loadImages() {
-    var checkedImages = 0; // Track how many images have been checked
-
-    for (var i = 1; i <= maxImages; i++) {
-      let imageURL = imageFolder + 'image' + i + '.jpg';
-
-      imageExists(imageURL, function(exists, url) {
-        checkedImages++;
-
-        if (exists) {
-          imageList.push(url);
-        }
-
-        // When all images have been checked, render and initialize the carousel
-        if (checkedImages === maxImages) {
-          renderImages();
-        }
+      revealItems.forEach(function (item, idx) {
+        item.style.transitionDelay = Math.min(idx * 80, 300) + 'ms';
+        revealObserver.observe(item);
       });
-    }
-  }
 
-  // Function to render images inside the container
-  function renderImages() {
-    if (imageList.length === 0) {
-      console.log("No valid images found.");
-      return;
-    }
+      var navObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          var id = entry.target.getAttribute('id');
+          navLinks.forEach(function (link) {
+            link.classList.toggle('is-active', link.getAttribute('href') === '#' + id);
+          });
+        });
+      }, { rootMargin: '-35% 0px -55% 0px', threshold: 0.01 });
 
-    // Append images to the container
-    imageList.forEach(url => {
-      var slideHTML = `<div class="project-container">
-                         <img src="${url}" class="u-max-full-width"/>
-                       </div>`;
-      imageContainer.append(slideHTML);
-    });
+      sections.forEach(function (section) { navObserver.observe(section); });
 
-    // Initialize carousel AFTER all images are added
-    setTimeout(initializeCarousel, 500);
-  }
+      function fillImageGrid(containerId, folder, maxImages) {
+        var container = document.getElementById(containerId);
+        if (!container) return;
 
-  // Function to initialize the Slick Carousel
-  function initializeCarousel() {
-    $('.carousel-inner').slick({
-      slidesToShow: 3, // Show 3 images at a time
-      slidesToScroll: 1,
-      autoplay: false,
-      arrows: true,
-      prevArrow: '<button type="button" class="slick-prev"><</button>',
-      nextArrow: '<button type="button" class="slick-next">></button>',
-      responsive: [
-        {
-          breakpoint: 768,
-          settings: {
-            slidesToShow: 2
-          }
-        },
-        {
-          breakpoint: 480,
-          settings: {
-            slidesToShow: 2
-          }
+        var frag = document.createDocumentFragment();
+        for (var i = 1; i <= maxImages; i++) {
+          var path = folder + 'image' + i + '.jpg';
+          var btn = document.createElement('button');
+          var img = document.createElement('img');
+          img.src = path;
+          img.alt = containerId + ' image ' + i;
+          img.loading = 'lazy';
+          img.decoding = 'async';
+
+          img.addEventListener('error', function () {
+            var parent = this.parentElement;
+            if (parent && parent.parentElement) parent.parentElement.removeChild(parent);
+          });
+
+          btn.appendChild(img);
+          btn.addEventListener('click', function () {
+            var targetImg = this.querySelector('img');
+            if (targetImg) openLightbox(targetImg.src);
+          });
+          frag.appendChild(btn);
         }
-      ]
-    });
-  }
 
-  // Call the function to load images
-  loadImages();
-});
-</script>
+        container.appendChild(frag);
+      }
 
+      var lightbox = document.getElementById('lightbox');
+      var lightboxImage = document.getElementById('lightbox-image');
+      var lightboxClose = document.getElementById('lightbox-close');
 
-<!-- ========== MISC ========== -->
-<span class="anchor" id="meta"></span>
-<div class="docs-section">
-  <p> This website was built with <a href="https://jekyllrb.com">jekyll</a> based on a template by <a href="http://web.media.mit.edu/~msaveski/">Dr. Martin Saveski</a> and <a href="https://dmelis.github.io/">Dr. David Alvarez-Melis.</a>
-  Last Updated in Feb 2026 </p>
-</div>
+      function openLightbox(src) {
+        lightboxImage.src = src;
+        lightbox.classList.add('open');
+        lightbox.setAttribute('aria-hidden', 'false');
+      }
 
+      function closeLightbox() {
+        lightbox.classList.remove('open');
+        lightbox.setAttribute('aria-hidden', 'true');
+        lightboxImage.src = '';
+      }
 
-    <div class="footer">
-      <div class="row">
-        <div class="four columns">
-          Fiona Victoria
-        </div>
-        <div class="four columns">  &nbsp;&nbsp; </div>
-        <div class="four columns">
-          fiona.victoria@gmail.com
-        </div>
-        <div class="four columns">
-          <span onclick="window.open('https://www.linkedin.com/in/fionavictoria/')" style="cursor: pointer">
-            <i class="fa fa-linkedin-square" aria-hidden="true"></i>
-          </span>
-          <span onclick="window.open('https://github.com/fionavictoria')" style="cursor: pointer">
-            <i class="fa fa-github" aria-hidden="true"></i>
-          </span>
-        </div>
-      </div>
-    </div>
+      lightboxClose.addEventListener('click', closeLightbox);
+      lightbox.addEventListener('click', function (e) {
+        if (e.target === lightbox) closeLightbox();
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+      });
 
-  </div>
-
-<!-- End Document
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+      fillImageGrid('media-grid', '/assets/media/', 10);
+      fillImageGrid('art-grid', '/assets/artworks/', 62);
+    })();
+  </script>
 </body>
 </html>
